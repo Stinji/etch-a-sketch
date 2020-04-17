@@ -1,0 +1,12 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(16, auto);
+    width: max-content;
+}
+
+.square {
+    background: beige;
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+}
