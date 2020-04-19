@@ -1,12 +1,39 @@
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(16, auto);
-    width: max-content;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-.square {
-    background: beige;
-    border: 1px solid black;
-    height: 15px;
-    width: 15px;
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.side-buttons {
+    display: flex;
+    flex-direction: column;
+    min-height: 540px;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+}
+
+.side-buttons>button {
+    border: 1px solid gray;
+    border-radius: 25px;
+    height: 45px;
+    margin: 5px 10px;
+    width: 45px;
+}
+
+#color-button {
+    margin: 50px 10px;
 }
