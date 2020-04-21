@@ -38,7 +38,7 @@ main {
 button>img {
     height: 22px;
     position: relative;
-    top: 1px;
+    top: 2px;
     width: 22px;
 }
 
@@ -64,21 +64,41 @@ button>img {
 
 .grid-container {
     background: rgba(128, 128, 128, 0.103);
+    border: 1px solid #d1d1d1;
     box-shadow: 0 6px 0 rgba(32,33,36,0.16);
+    display: flex;
+    flex-wrap: wrap;
     margin: 75px 0 22px;
-    padding-top: 100%;
+    height: 512px;
     width: 100%;
 }
+
+.grid-square {
+    border: 1px solid #d1d1d1;
+    height: 25%;
+    margin: 0;
+    width: 25%;
+}
+
+/* .grid-square:hover {
+    background: black;
+} */
 
 #new-grid {
     background: #1a73e8;
     box-shadow: 0 4px 0 #185ABC;
     border: none;
     color: white;
+    cursor: pointer;
     font-size: 0.875rem;
     font-weight: 500;
     min-height: 36px;
     margin: 12px;
     min-width: 200px;
     padding: 0 24px;
+    transition: all 0.3s ease;
+}
+
+#new-grid:hover {
+    opacity: 0.80;
 }
