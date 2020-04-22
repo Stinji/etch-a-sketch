@@ -6,6 +6,8 @@
 }
 
 body {
+    background-image: url("../images/pixel-background-png-4.png");
+    background-size: cover;
     height: 100vh;
     width: 100vw;
 }
@@ -54,6 +56,13 @@ button>img {
     width: 100%;
 }
 
+h1 {
+    color: white;
+    font-family: "Pixel Font";
+    font-size: 38px;
+    filter: drop-shadow(0 3px 0 #8bd0ed);
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
@@ -69,7 +78,7 @@ button>img {
 }
 
 .grid-container {
-    background: rgba(128, 128, 128, 0.103);
+    background: white;
     border: 1px solid #d1d1d1;
     box-shadow: 0 6px 0 rgba(32, 33, 36, 0.16);
     display: flex;

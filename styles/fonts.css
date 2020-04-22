@@ -1,3 +1,9 @@
+/* pixel font */
+@font-face {
+    font-family: "Pixel Font";
+    src: url(fonts/prstartk.ttf) format("truetype");
+  }
+
 /* cyrillic */
 @font-face {
     font-family: 'Google Sans';
