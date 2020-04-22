@@ -62,27 +62,34 @@ button>img {
     width: 512px;
 }
 
-.grid-container {
-    background: rgba(128, 128, 128, 0.103);
-    border: 1px solid #d1d1d1;
-    box-shadow: 0 6px 0 rgba(32,33,36,0.16);
-    display: flex;
-    flex-wrap: wrap;
-    margin: 75px 0 22px;
-    height: 512px;
+.container-container {
+    padding-top: 100%;
+    position: relative;
     width: 100%;
 }
 
-.grid-square {
+.grid-container {
+    background: rgba(128, 128, 128, 0.103);
+    border: 1px solid #d1d1d1;
+    box-shadow: 0 6px 0 rgba(32, 33, 36, 0.16);
+    display: flex;
+    align-content: space-between;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 26px 0 22px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.square {
     border: 1px solid #d1d1d1;
     height: 25%;
     margin: 0;
     width: 25%;
 }
-
-/* .grid-square:hover {
-    background: black;
-} */
 
 #new-grid {
     background: #1a73e8;
@@ -96,9 +103,15 @@ button>img {
     margin: 12px;
     min-width: 200px;
     padding: 0 24px;
+    position: relative;
     transition: all 0.3s ease;
+    top: 50px;
 }
 
 #new-grid:hover {
     opacity: 0.80;
+}
+
+@media screen and (max-width: 700px) {
+    .side-buttons {}
 }

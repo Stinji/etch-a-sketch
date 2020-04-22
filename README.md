@@ -1,12 +1,6 @@
 TO DO OVERVIEW
 ---------------
 
-- add elements
-- style buttons + images
-- style 'new grid' button
-- create grid in JS
-- make buttons interactive
-
 SOLID
 - clickable => toggle normal background change
 - on hover: tooltip
