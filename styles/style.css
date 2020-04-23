@@ -19,8 +19,8 @@ main {
     width: 100%;
 }
 
-.side-buttons {
-    display: flex;
+.style-buttons {
+    display: none;
     flex-direction: column;
     min-height: 540px;
     height: 100%;
@@ -29,7 +29,11 @@ main {
     left: 0;
 }
 
-.side-buttons>button {
+.style-buttons-flex {
+    display: flex;
+}
+
+.style-buttons>button {
     border: none;
     border-radius: 25px;
     height: 45px;
@@ -117,10 +121,23 @@ h1 {
     top: 50px;
 }
 
+#style-menu {
+    background: #1a73e8;
+    box-shadow: 0 4px 0 #185ABC;
+    border: none;
+    cursor: pointer;
+    height: 36px;
+    position: relative;
+    left: 150px;
+    top: 2px;
+    transition: all 0.3s ease;
+    width: 40px;
+}
+
 #new-grid:hover {
     opacity: 0.80;
 }
 
-@media screen and (max-width: 700px) {
-    .side-buttons {}
+#style-menu:hover {
+    opacity:0.80;
 }

@@ -1,5 +1,7 @@
 const gridContainer = document.querySelector('.grid-container');
 const newGrid = document.getElementById('new-grid');
+const styleMenu = document.getElementById('style-menu');
+const styleButtons = document.querySelector('.style-buttons');
 
 createGrid(16);
 
@@ -36,34 +38,7 @@ newGrid.addEventListener('click', function createNewGrid() {
     }
 });
 
-const solid = document.getElementById('solid');
-const random = document.getElementById('random');
-const grayscale = document.getElementById('grayscale');
-const eraser = document.getElementById('eraser');
-const colorButton = document.getElementById('color-button');
-const hover = document.getElementById('hover');
-const click = document.getElementById('click');
-const trash = document.getElementById('trash');
 
-solid.addEventListener('click', () => {
-    solid.style.background = '#1a73e859';
-});
-random.addEventListener('click', () => {
-    random.style.background = '#1a73e859';
-});
-grayscale.addEventListener('click', () => {
-    grayscale.style.background = '#1a73e859';
-});
-eraser.addEventListener('click', () => {
-    eraser.style.background = '#1a73e859';
-});
-
-hover.addEventListener('click', () => {
-    hover.style.background = '#1a73e859';
-});
-click.addEventListener('click', () => {
-    click.style.background = '#1a73e859';
-});
-trash.addEventListener('click', () => {
-    trash.style.background = '#1a73e859';
+styleMenu.addEventListener('click', () => {
+    styleButtons.classList.toggle('style-buttons-flex');
 });
