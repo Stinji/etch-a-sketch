@@ -42,3 +42,19 @@ newGrid.addEventListener('click', function createNewGrid() {
 styleMenu.addEventListener('click', () => {
     styleButtons.classList.toggle('style-buttons-flex');
 });
+
+const solid = document.getElementById('solid');
+const random = document.getElementById('random');
+const grayscale = document.getElementById('grayscale');
+const eraser = document.getElementById('eraser');
+
+solid.addEventListener('click', (e) => {
+    alert(e)
+});
+random.addEventListener('click', selectStyle('random'));
+grayscale.addEventListener('click', selectStyle('grayscale'));
+eraser.addEventListener('click', selectStyle('eraser'));
+
+function selectStyle() {
+    
+}
