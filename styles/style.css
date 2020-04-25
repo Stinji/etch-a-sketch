@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("../images/pixel-background-png-4.png");
+    background-image: url("../images/pixel-background.png");
     background-size: cover;
     height: 100vh;
     width: 100vw;
@@ -71,6 +71,10 @@ main {
     color: white;
     transition: all 0.2s ease;
     width: 100%;
+}
+
+.blue {
+    background: #8bd0ed;
 }
 
 .container>button:hover {

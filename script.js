@@ -49,12 +49,18 @@ const grayscale = document.getElementById('grayscale');
 const eraser = document.getElementById('eraser');
 
 solid.addEventListener('click', (e) => {
-    alert(e)
+    test(e.target);
 });
-random.addEventListener('click', selectStyle('random'));
-grayscale.addEventListener('click', selectStyle('grayscale'));
-eraser.addEventListener('click', selectStyle('eraser'));
+random.addEventListener('click', (e) => {
+    test(e.target);;
+});
+grayscale.addEventListener('click', (e) => {
+    test(e.target);;
+});
+eraser.addEventListener('click', (e) => {
+    test(e.target);;
+});
 
-function selectStyle() {
-    
+function test(bla) {
+    console.log(bla);
 }
