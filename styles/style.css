@@ -6,10 +6,24 @@
 }
 
 body {
-    background-image: url("../images/pixel-background.png");
-    background-size: cover;
+    background: linear-gradient(rgb(252, 185, 185), #CCFFFF, #38a9f0);
     height: 100vh;
     width: 100vw;
+}
+
+.title {
+    line-height: 64px;
+    top: 50px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    font-family: "Pixel Font";
+    font-size: 38px;
+    filter: drop-shadow(0 3px 0 #8bd0ed);
 }
 
 main {
@@ -19,31 +33,34 @@ main {
     width: 100%;
 }
 
-.style-buttons {
+.style-container {
     align-items: center;
     border: 2px solid #d1d1d1;
     display: none;
     height: 250px;
     left: 50%;
     position: absolute;
-    top: 50%;
+    top: 419px;
     transform: translate(-50%, -50%);
     width: 512px;
     z-index: 1;
 }
 
-.style-buttons::before {
+.style-container-flex {
+    display: flex;
+}
+
+.style-container::before {
     background: rgba(0, 0, 0, 0.2);
     content: "";
     height: 512px;
-    position: absolute;
-    top: -155px;
     left: -2px;
+    position: absolute;
     width: 512px;
     z-index: -1;
 }
 
-.container { 
+.container {
     height: 100%;
     width: 40%;
 }
@@ -61,20 +78,12 @@ main {
     width: 20%;
 }
 
-.style-buttons-flex {
-    display: flex;
-}
-
 .container>button {
     background: #8bd0ed;
     border: none;
     color: white;
     transition: all 0.2s ease;
     width: 100%;
-}
-
-.blue {
-    background: #8bd0ed;
 }
 
 .container>button:hover {
@@ -86,25 +95,6 @@ button>img {
     position: relative;
     top: 2px;
     width: 22px;
-}
-
-#color-button {
-    background: gray;
-    margin: 50px 10px;
-}
-
-.title {
-    text-align: center;
-    line-height: 64px;
-    position: absolute;
-    width: 100%;
-}
-
-h1 {
-    color: white;
-    font-family: "Pixel Font";
-    font-size: 38px;
-    filter: drop-shadow(0 3px 0 #8bd0ed);
 }
 
 .main-content {
@@ -135,13 +125,6 @@ h1 {
     left: 0;
     height: 100%;
     width: 100%;
-}
-
-.square {
-    border: 1px solid #d1d1d1;
-    height: 25%;
-    margin: 0;
-    width: 25%;
 }
 
 #new-grid {
