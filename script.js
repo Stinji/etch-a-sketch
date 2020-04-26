@@ -2,6 +2,11 @@ const gridContainer = document.querySelector('.grid-container');
 const newGrid = document.getElementById('new-grid');
 const styleMenu = document.getElementById('style-menu');
 const styleButtons = document.querySelector('.style-buttons');
+let styleChoice = 'mouseenter';
+let r = Math.floor(Math.random() * 256);
+let g = Math.floor(Math.random() * 256);
+let b = Math.floor(Math.random() * 256);
+let selectedStyle = `rgb(${r}, ${g}, ${b})`;
 
 createGrid(16);
 
@@ -15,11 +20,8 @@ function createGrid(gridSize) {
     for (i = 0; i < gridSize; i++) {
         for (j = 0; j < gridSize; j++) {
             const square = document.createElement('div');
-            square.classList.add('square')
+            square.classList.add('square');
             square.setAttribute('style', `height: ${100 / gridSize}%; width: ${100 / gridSize}%;`);
-            square.addEventListener('mouseenter', (e) => {
-                e.target.style.background = 'black';
-            });
             gridContainer.appendChild(square);
         }
     }
@@ -38,29 +40,10 @@ newGrid.addEventListener('click', function createNewGrid() {
     }
 });
 
-
 styleMenu.addEventListener('click', () => {
     styleButtons.classList.toggle('style-buttons-flex');
 });
 
-const solid = document.getElementById('solid');
-const random = document.getElementById('random');
-const grayscale = document.getElementById('grayscale');
-const eraser = document.getElementById('eraser');
-
-solid.addEventListener('click', (e) => {
-    test(e.target);
-});
-random.addEventListener('click', (e) => {
-    test(e.target);;
-});
-grayscale.addEventListener('click', (e) => {
-    test(e.target);;
-});
-eraser.addEventListener('click', (e) => {
-    test(e.target);;
-});
-
-function test(bla) {
-    console.log(bla);
-}
+gridContainer.childNodes.forEach(child => child.addEventListener(styleChoice, (e) => {
+    e.target.style.background = selectedStyle;
+}));
