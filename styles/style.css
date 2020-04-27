@@ -33,7 +33,7 @@ main {
     width: 100%;
 }
 
-.style-container {
+#style-container {
     align-items: center;
     border: 2px solid #d1d1d1;
     display: none;
@@ -46,11 +46,8 @@ main {
     z-index: 1;
 }
 
-.style-container-flex {
-    display: flex;
-}
 
-.style-container::before {
+#style-container::before {
     background: rgba(0, 0, 0, 0.2);
     content: "";
     height: 512px;
@@ -92,6 +89,7 @@ main {
 
 button>img {
     height: 22px;
+    pointer-events: none;
     position: relative;
     top: 2px;
     width: 22px;
