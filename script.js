@@ -1,29 +1,46 @@
 const gridContainer = document.querySelector('.grid-container');
 const newGrid = document.getElementById('new-grid');
 const styleMenu = document.getElementById('style-menu');
-let applyChoice = 'mouseenter';
-let styleChoice = 'grayscale';
+let styleChoice = 'random';
 
 createGrid(16);
 
-function addListener() {
-    gridContainer.childNodes.forEach(child => {
-        child.addEventListener(applyChoice, (e) => {
-            // changeRGB();
-            changeStyle(styleChoice, e);
-        });
-    });
+function addSelectedStyle() {
+    if (styleChoice === 'random') {
+        gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
+            e.target.style.background = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
+        }));
+    } else if (styleChoice === 'grayscale') {
+        gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
+            if (!e.target.style.backgroundColor) {
+                return e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+            }
+            else if (e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
+                return;
+            }
+            else {
+                currentOpacity = parseFloat(e.target.style.backgroundColor.slice(-4, -1));
+                return e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity += 0.1})`;
+            }
+        }));
+    } else if (styleChoice === 'eraser') {
+        gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
+            e.target.style.background = 'white';
+        }));
+    } else {
+        gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
+            e.target.style.background = 'black';
+        }));
+    }
 }
 
 function createGrid(gridSize) {
-    for (i = 0; i < gridSize; i++) {
-        for (j = 0; j < gridSize; j++) {
-            const square = document.createElement('div');
-            square.setAttribute('style', `height: ${100 / gridSize}%; width: ${100 / gridSize}%; border: 1px solid #d1d1d1;`);
-            gridContainer.appendChild(square);
-        }
+    for (i = 0; i < gridSize ** 2; i++) {
+        const square = document.createElement('div');
+        square.setAttribute('style', `height: ${100 / gridSize}%; width: ${100 / gridSize}%; border: 1px solid #d1d1d1;`);
+        gridContainer.appendChild(square);
     }
-    addListener();
+    addSelectedStyle();
 }
 
 function clearGrid() {
@@ -66,3 +83,5 @@ styleArray.forEach(child => {
         changeStyle(styleChoice);
     })
 });
+
+//switch statement styleChoice
