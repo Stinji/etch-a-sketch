@@ -2,7 +2,7 @@ const gridContainer = document.querySelector('.grid-container');
 const newGrid = document.getElementById('new-grid');
 const styleMenu = document.getElementById('style-menu');
 const btnsContainer = document.getElementById('style-container');
-let styleChoice = 'random';
+let styleChoice = 'solid';
 
 createGrid(16);
 
@@ -15,18 +15,18 @@ function clearGrid() {
 function createGrid(gridSize) {
     for (i = 0; i < gridSize ** 2; i++) {
         const square = document.createElement('div');
-        square.setAttribute('style', `height: ${100 / gridSize}%; width: ${100 / gridSize}%; border: 1px solid #d1d1d1;`);
+        square.setAttribute('style', `height: ${100 / gridSize}%; width: ${100 / gridSize}%;`);
         gridContainer.appendChild(square);
     }
-    addSelectedStyle();
+    addSelectedStyle(styleChoice);
 }
 
 function promptSize() {
-    let gridSize = prompt('Enter an integer between 1 and 100:');
+    let gridSize = prompt('Enter an integer between 1 and 50:');
     if (gridSize === null) {
         alert('Cancelled');
-    } else if (gridSize < 1 || gridSize > 100 || gridSize % 1 !== 0 || !parseInt(gridSize)) {
-        alert('Please only enter an integer between 1 and 100');
+    } else if (gridSize < 1 || gridSize > 50 || gridSize % 1 !== 0 || !parseInt(gridSize)) {
+        alert('Please only enter an integer between 1 and 50');
         promptSize();
     } else {
         clearGrid();
@@ -51,31 +51,36 @@ document.addEventListener('click', (e) => {
     btnsContainer.style.display = 'none';
 });
 
-function addSelectedStyle() {
+document.querySelector('.container-left').childNodes.forEach(child => child.addEventListener('click', (e) => {
+    styleChoice = e.target.id;
+    return addSelectedStyle(styleChoice);
+}));
+
+function addSelectedStyle(styleChoice) {
+
+}
+
+function addSelectedStyle(styleChoice) {
     if (styleChoice === 'random') {
         gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
             e.target.style.background = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
         }));
     } else if (styleChoice === 'grayscale') {
         gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
-            if (!e.target.style.backgroundColor) {
-                return e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
-            }
-            else if (e.target.style.backgroundColor === 'rgb(0, 0, 0)') {
+            e.target.style.background = '#000';
+            let currentLevel = Number(e.target.style.opacity);
+            if (currentLevel === 1) {
                 return;
             }
-            else {
-                currentOpacity = parseFloat(e.target.style.backgroundColor.slice(-4, -1));
-                return e.target.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity += 0.1})`;
-            }
+            e.target.style.opacity = currentLevel + 0.1;
         }));
     } else if (styleChoice === 'eraser') {
         gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
-            e.target.style.background = 'white';
+            e.target.style.background = '#fff';
         }));
     } else {
         gridContainer.childNodes.forEach(child => child.addEventListener('mouseenter', (e) => {
-            e.target.style.background = 'black';
+            e.target.style.background = '#000';
         }));
     }
 }
