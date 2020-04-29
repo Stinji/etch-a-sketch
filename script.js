@@ -4,21 +4,22 @@ const styleMenu = document.getElementById('style-menu');
 const btnsContainer = document.getElementById('style-container');
 let styleChoice = 'solid';
 let applyStyle = 'mouseenter';
+let chosenColor = '#000000';
 
 let handler = function (e) {
     if (styleChoice !== 'grayscale' && e.target.style.opacity !== '1') e.target.style.opacity = '';
     if (styleChoice === 'random') e.target.style.background = `rgb(${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)}, ${Math.round(Math.random() * 255)})`;
     else if (styleChoice === 'eraser') e.target.style.background = '#fff';
     else {
-        e.target.style.background = '#000';
+        if (chosenColor !== document.getElementById('color').value) addSelectedStyle();
+        e.target.style.background = chosenColor;
         if (styleChoice === 'grayscale') {
             let currentLevel = Number(e.target.style.opacity);
             if (currentLevel === 1) return;
             e.target.style.opacity = currentLevel += 0.1;
         }
     }
-    removeEventListener(applyStyle, handler);
-}
+};
 
 function clearGrid() {
     while (gridContainer.lastElementChild) {
@@ -50,9 +51,16 @@ function promptSize() {
     }
 }
 
-newGrid.addEventListener('click', () => { promptSize() });
+newGrid.addEventListener('click', () => { promptSize(); });
+
+function removePreviousStyle() {
+    gridContainer.childNodes.forEach(square => {
+        square.removeEventListener(applyStyle, handler);
+    });
+}
 
 function addSelectedStyle() {
+    chosenColor = document.getElementById('color').value;
     gridContainer.childNodes.forEach(square => {
         if (square.style.opacity === '1') square.style.opacity = '';
         square.addEventListener(applyStyle, handler);
@@ -69,7 +77,10 @@ document.querySelector('.container-right').childNodes.forEach(child => child.add
         gridContainer.childNodes.forEach(square => square.style.background = '#fff');
     }
     else {
-        console.log('not trash');
+        removePreviousStyle();
+        if (e.target.id === 'hover') applyStyle = 'mouseenter';
+        else applyStyle = 'click';
+        addSelectedStyle();
     }
 }));
 
@@ -83,7 +94,7 @@ styleMenu.addEventListener('click', () => {
 
 document.addEventListener('click', (e) => {
     if (e.target.id === 'style-container' || e.target.offsetParent.id === 'style-container' || e.target.id === 'style-menu') {
-        return
+        return;
     }
     btnsContainer.style.display = 'none';
 });
