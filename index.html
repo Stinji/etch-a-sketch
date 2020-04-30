@@ -13,29 +13,29 @@
 
 <body>
     <main>
-        <div class="title">
+        <div class="content">
             <h1>Etch-a-Sketch</h1>
-        </div>
-        <div id="style-container">
-            <div class="container container-left">
-                <button id="solid">Solid</button>
-                <button id="random">Random</button>
-                <button id="grayscale">Grayscale</button>
-                <button id="eraser">Eraser</button>
+            <div class="main-content">
+                <div id="style-container">
+                    <div class="container container-left">
+                        <button id="solid">Solid</button>
+                        <button id="random">Random</button>
+                        <button id="grayscale">Grayscale</button>
+                        <button id="eraser">Eraser</button>
+                    </div>
+                    <input class="container container-middle" type="color" id="color">
+                    <div class="container container-right">
+                        <button id="hover">Hover</button>
+                        <button id="click">Click</button>
+                        <button id="trash">Clear grid</button>
+                    </div>
+                </div>
+                <div class="container-container">
+                    <div class="grid-container"></div>
+                </div>
+                <button id="new-grid">Create new grid</button>
+                <button id="style-menu"><img src="images/palette-white.png"></button>
             </div>
-            <input class="container container-middle" type="color" id="color">
-            <div class="container container-right">
-                <button id="hover">Hover</button>
-                <button id="click">Click</button>
-                <button id="trash">Clear grid</button>
-            </div>
-        </div>
-        <div class="main-content">
-            <div class="container-container">
-                <div class="grid-container"></div>
-            </div>
-            <button id="new-grid">Create new grid</button>
-            <button id="style-menu"><img src="images/palette-white.png"></button>
         </div>
     </main>
     <script src="script.js"></script>
